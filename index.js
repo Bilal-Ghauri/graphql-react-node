@@ -8,6 +8,8 @@ const cors = require("cors");
 const { graphqlHTTP } = require("express-graphql");
 const UserQueries = require("./graphql/queries/UserQueries");
 const UserMutations = require("./graphql/mutations/UserMutations");
+const BookQueries = require('./graphql/queries/BookQueries')
+const BookMutations = require('./graphql/mutations/BookMutations')
 const { GraphQLObjectType, GraphQLSchema } = require("graphql");
 
 app.use(cors());
@@ -17,6 +19,7 @@ const rootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   fields: {
     ...UserQueries,
+    ...BookQueries
   },
 });
 
@@ -24,6 +27,7 @@ const rootMutation = new GraphQLObjectType({
   name: "RootMutationType",
   fields: {
     ...UserMutations,
+    ...BookMutations
   },
 });
 

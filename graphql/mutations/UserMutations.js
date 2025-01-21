@@ -6,8 +6,8 @@ const UserMutations = {
   addUser: {
     type: UserType,
     args: {
-      first_name: { type: GraphQLString },
-      last_name: { type: GraphQLString },
+      name: { type: GraphQLString },
+      role: { type: GraphQLString },
       email: { type: GraphQLString },
       password: { type: GraphQLString },
     },
@@ -24,18 +24,18 @@ const UserMutations = {
     type: UserType,
     args: {
       id: { type: GraphQLID },
-      first_name: { type: GraphQLString },
-      last_name: { type: GraphQLString },
+      name: { type: GraphQLString },
+      role: { type: GraphQLString },
       email: { type: GraphQLString },
       password: { type: GraphQLString },
     },
     resolve: async (parent, args) => {
       const updateData = {};
-      if (args.first_name) {
-        updateData.first_name = args.first_name;
+      if (args.name) {
+        updateData.name = args.name;
       }
-      if (args.last_name) {
-        updateData.last_name = args.last_name;
+      if (args.role) {
+        updateData.role = args.role;
       }
       if (args.email) {
         updateData.email = args.email;
