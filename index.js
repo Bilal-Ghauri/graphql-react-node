@@ -44,6 +44,10 @@ app.use(
   })
 );
 
+const imageUploadToS3 = require('./util/UploadToS3')
+imageUploadToS3()
+
+
 app.listen(3000, () => {
   console.log("Server is running on port http://localhost:3000");
   console.log("Graphql Server is running on port http://localhost:3000/graphql");
