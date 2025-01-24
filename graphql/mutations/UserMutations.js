@@ -12,7 +12,8 @@ const UserMutations = {
       password: { type: GraphQLString },
     },
     resolve: async (parent, args) => {
-      let findUser = await User.find({ email: args.email })
+      let findUser = await User.findOne({ email: args.email })
+      console.log('findUser',findUser)
       if (findUser) {
         throw new Error("User already exists")
       }

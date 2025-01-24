@@ -10,6 +10,9 @@ const UserQueries = require("./graphql/queries/UserQueries");
 const UserMutations = require("./graphql/mutations/UserMutations");
 const BookQueries = require('./graphql/queries/BookQueries')
 const BookMutations = require('./graphql/mutations/BookMutations')
+const BorrowQueries = require('./graphql/queries/BorrowQueries')
+const BorrowMutation  = require('./graphql/mutations/BorrowMutations')
+
 const { GraphQLObjectType, GraphQLSchema } = require("graphql");
 
 app.use(cors());
@@ -19,7 +22,8 @@ const rootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   fields: {
     ...UserQueries,
-    ...BookQueries
+    ...BookQueries,
+    ...BorrowQueries
   },
 });
 
@@ -27,7 +31,8 @@ const rootMutation = new GraphQLObjectType({
   name: "RootMutationType",
   fields: {
     ...UserMutations,
-    ...BookMutations
+    ...BookMutations,
+    ...BorrowMutation
   },
 });
 
@@ -44,8 +49,8 @@ app.use(
   })
 );
 
-const imageUploadToS3 = require('./util/UploadToS3')
-imageUploadToS3()
+// const imageUploadToS3 = require('./util/UploadToS3')
+// imageUploadToS3()
 
 
 app.listen(3000, () => {
