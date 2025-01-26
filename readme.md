@@ -1,0 +1,1 @@
+React app for library management app  frontend(react js) (backent nodejs / graphql / AMAZON S3)
